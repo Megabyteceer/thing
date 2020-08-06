@@ -12,8 +12,13 @@ const {
 const wss = require('./server-socket.js');
 
 module.exports = function (projectPath, callback, options) {
-
 	let result = {};
+	let soundsPath = path.join(projectPath, 'snd/');
+	if(!fs.existsSync(soundsPath)) {
+		callback(result);
+		return;
+	}
+	
 	function outputError(err, outError, out) {
 		if(!result.errors) {
 			result.errors = [];
@@ -31,8 +36,7 @@ module.exports = function (projectPath, callback, options) {
 	}
 	let filesToConvert = [];
 
-	let soundsPath = path.join(projectPath, 'snd/');
-
+	
 	let files = walkSync(soundsPath);
 	for (let fn of files) {
 		if (fn.endsWith('.wav')) {

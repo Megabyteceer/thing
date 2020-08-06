@@ -2,40 +2,31 @@
 <html>
 	<head>
 		<title>Thing Editor</title>
-		<link rel="stylesheet" href="css/lib/reset.css"/>
+		<link rel="stylesheet" href="/thing-editor/node_modules/reset-css/reset.css"/>
 		<link rel="stylesheet" href="css/style.css"/>
 		
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-		
-		<script>
-			/*window.errorssLimit =0;
-			window.occuredErrorsInGame = [];
-			window.onerror = function(msg, url, line, col, error) {
-				debugger;
-				window.errorssLimit++;
-				if (window.errorssLimit<=3) {
-					var m = 'unhandled ERROR: ' + url+' ('+line+':'+col+') '+msg;
-					
-					window.occuredErrorsInGame.push(m);
-					
-					alert(m);
-				}
-			};*/
-		</script>
 	</head>
 	
 	<body>
 	<div id="root"></div>
+	<div id="additional-windows-root"></div>
+	<div id="select-lists-root"></div>
 	
 	<body/>
-	<script src="js/lib/react.production.min.js"></script>
-	<script src="js/lib/react-dom.production.min.js"></script>
-	<script src="/thing-engine/js/lib/howler.core.min.js"></script>
-	<script src="/thing-engine/js/lib/pixi.js"></script>
-	<script src="/thing-engine/js/lib/pixi-spine.js"></script>
-	<script src="/thing-engine/js/lib/webfontloader.js"></script>
-	<script src="js/lib/pixi-filters.js"></script>
+	<script src="/thing-editor/node_modules/react/umd/react.production.min.js"></script>
+	<script src="/thing-editor/node_modules/react-dom/umd/react-dom.production.min.js"></script>
+	<script src="/node_modules/howler/dist/howler.core.min.js"></script>
+	<script src="/node_modules/pixi.js-legacy/dist/pixi-legacy.js"></script>
+	<script src="/node_modules/webfontloader/webfontloader.js"></script>
+	<script src="/thing-editor/node_modules/pixi-filters/dist/pixi-filters.js"></script>
 
 	<script type="module" src="client-index.js"></script>
+	<script>
+	if(!window.PIXI) {
+		document.write('<div class="modal-body danger"><div class="modal-content">Could not fetch required js libraries.<br>Looks like symlinks were not created.<br><h3>Please reinstall Thing Editor with Administrator access.</h3></div></div>')
+	}
+	
+	</script>
 	
 </html>

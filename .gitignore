@@ -32,3 +32,4 @@ typings/
 
 js/lib
 css/lib
+/node_modules

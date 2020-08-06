@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Editor",
+            "disableNetworkCache": false,
+            "url": "http://127.0.0.1:32023/thing-editor",
+            "webRoot": "${workspaceRoot}",
+            "enableContentValidation": false,
+            "runtimeArgs": [
+              //  "--disable-web-security"
+            ]
+        }
+    ]
+}

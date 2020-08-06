@@ -1,31 +1,27 @@
 # Thing-editor
 
-Visual game editor for pixi.js 4.
+Visual game editor for pixi.js 5.
 
-![Editor screenshot](https://raw.githubusercontent.com/Megabyteceer/thing-editor/master/img/screenshots/thing-editor.jpg)
+![Editor screenshot](https://raw.githubusercontent.com/wiki/Megabyteceer/thing-editor/img/full-editor.jpg)
 
 Project in experimental **beta-version**.
 
 ## Installation
 
 Please check if you have latest **nodejs**, **npm**, **chrome**, and **ffmpeg** on your computer, **before installlation**.
-Use next script with administrator rights, to install editor and example project.
+Use next script to install editor and example project.
 After succesfull installation editor should start automaticly as chrome page.
 To start editor manually use **npm start** in **thing-editor** folder
 
 ```
 
-#administrator's rights is required to make symlinks
-
 mkdir game_editor_here
 cd game_editor_here
 git clone https://github.com/Megabyteceer/thing-editor.git
-git clone https://github.com/Megabyteceer/thing-engine.git
 git clone https://github.com/Megabyteceer/thing-project-example.git games/thing-project-example
-cd thing-engine
+cd thing-editor
 npm i
-cd ../thing-editor
-npm i
+npm run-script create_env
 npm start
 
 ```
@@ -41,8 +37,6 @@ npm start
  - postponed resources loading for each scene
 
 ## What is need to do:
- - atlases packing for projects created in thing-editor.
- - sounds bitrate settings UI
  - drag and drop for "scene-tree" and "classes list"
  - examples and documentation
  
@@ -53,6 +47,14 @@ Documentation is coming-soon. Use example project to understand beginigs.
 Use double click on component in scene tree - to open component's source file to view and edit.
 Work still in progress.
 
-### Projects made with thing-engine
+## Sponsored:
+
+[![BGaming](https://www.bgaming.com/img/b-gaming-logo-color.svg)](https://www.bgaming.com/)
+
+
+### Projects made with thing-editor
  - [Zombie Hunters](http://zh.pixel-cave.com)
  - [Handless Millionaire](http://hm.pixel-cave.com)
+
+### Documentation
+For detailed documentation please check our [Wiki](https://github.com/Megabyteceer/thing-editor/wiki).
