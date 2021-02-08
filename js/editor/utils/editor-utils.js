@@ -9,11 +9,11 @@ throw 'Editor time sources was accidentally imported in to final game build. Ple
 let factories = {};
 window.R = factories;
 
-['div', 'span', 'img', 'button', 'input', 'label', 'b', 'a', 'br', 'hr', 'svg', 'polyline', 'textarea', 'iframe'].some((factoryType) => {
+for(let factoryType of ['div', 'span', 'img', 'button', 'input', 'label', 'b', 'a', 'br', 'hr', 'svg', 'polyline', 'textarea', 'iframe']) {
 	factories[factoryType] = (...theArgs) => {
 		return React.createElement.call(this, factoryType, ...theArgs);
 	};
-});
+}
 
 R.fragment = function(...theArgs) {
 	return React.createElement(React.Fragment, null, ...theArgs);

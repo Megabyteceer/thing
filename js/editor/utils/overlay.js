@@ -376,7 +376,7 @@ window.addEventListener('mousedown', function onMouseDown(ev) {
 				} else if (ev.buttons === 1 || ev.buttons === 2) {
 					draggingDragger = overedDragger;
 				}
-			} else if(!selectionDisabled && ev.target === game.pixiApp.view && ev.buttons === 1) {
+			} else if(!selectionDisabled && ev.buttons === 1) {
 				selectByStageClick(ev);
 			} else if(!selectionDisabled && ev.buttons === 2 && editor.selection.length > 0) {
 				let info = __getNodeExtendData(editor.selection[0]);

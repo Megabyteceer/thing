@@ -74,16 +74,17 @@ class Window extends React.Component {
 		this.deltaT = this.deltaT.bind(this);
 		
 		this.onMouseDown = this.onMouseDown.bind(this);
-		
-		window.addEventListener('resize', this.onClientResize.bind(this));
+		this.onClientResize = this.onClientResize.bind(this);
 	}
 	
 	componentDidMount() {
+		window.addEventListener('resize', this.onClientResize);
 		this.$ = document.querySelector('#' + this.id);
 		Window.all[this.props.id] = this;
 	}
 
 	componentWillUnmount() {
+		window.removeEventListener('resize', this.onClientResize);
 		delete Window.all[this.props.id];
 	}
 	
@@ -325,7 +326,7 @@ Window.bringWindowForward = (windowBody, setCurrentHelp) => {
 		}
 		Array.from(document.getElementsByClassName('window-body')).sort((a, b) => {
 			return a.style.zIndex - b.style.zIndex;
-		}).some((w, i, a) => {
+		}).forEach((w, i, a) => {
 			w.style.zIndex = (w === windowBody) ? a.length + 2 : i;
 		});
 	}, 1);

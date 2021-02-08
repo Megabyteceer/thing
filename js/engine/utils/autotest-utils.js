@@ -47,12 +47,14 @@ export function testWait(name, condition, timeout = 20000) {
 		startTimeout(name, timeout);
 		const attempt = () => {
 			if(!testsStoppedByUser) {
-				if(testsStoppedByUser || (typeof condition === 'function' ? condition() : getValueByPath(condition, {}))) {
+				if(typeof condition === 'function' ? condition() : getValueByPath(condition, {})) {
 					finishTimeout();
 					resolve();
 				} else {
 					setTimeout(attempt, 100);
 				}
+			} else {
+				finishTimeout();
 			}
 		};
 		setTimeout(attempt, 100);
