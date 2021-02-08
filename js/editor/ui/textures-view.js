@@ -309,14 +309,8 @@ class TexturesViewerBody extends React.Component {
 				JSON.stringify(data, checkValue);
 			}
 	
-			function checkListForImages(list) {
-				for(let key in list) {
-					checkDataForImages(list[key]);
-				}
-			}
-	
-			checkListForImages(Lib.prefabs);
-			checkListForImages(Lib.scenes);
+			checkDataForImages(Lib.prefabs);
+			checkDataForImages(Lib.scenes);
 	
 			for(let imageName of allTextures) {
 				let texture = Lib.getTexture(imageName);
