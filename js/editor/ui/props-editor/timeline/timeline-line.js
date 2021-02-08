@@ -79,10 +79,9 @@ export default class Line extends React.Component {
 		let field = ownerProps.field;
 
 		let lastKeyframe = field.t[field.t.length - 1];
-		let width = 0;
-		if(lastKeyframe) {
-			width = Math.max(lastKeyframe.t, lastKeyframe.j);
-		}
+		assert(lastKeyframe, "Animated field with no keyframes detected.", 90001);
+		let width = Math.max(lastKeyframe.t, lastKeyframe.j);
+
 		width += 300;
 		width *= widthZoom;
 		let height = heightZoom;

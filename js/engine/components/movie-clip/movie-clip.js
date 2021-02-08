@@ -364,7 +364,7 @@ export default class MovieClip extends DSprite {
 			if(this._timelineData && this._timelineData.f) {
 				let fields = this._timelineData.f;
 				if(fields.find(f => f.n === 'visible')) {
-					this.visible |= !this.__lockSelection;
+					this.visible = this.visible || !this.__lockSelection;
 				}
 				if((this.alpha < 0.1) && fields.find(f => f.n === 'alpha')) {
 					this.alpha = 1;

@@ -224,9 +224,13 @@ class ClassesView extends React.Component {
 			), item, key, this, 'components.' + item.c.name);
 	}
 	
-	selectedItem() {
-		if ((!editor.ClassesLoader.gameObjClasses) || (editor.ClassesLoader.gameObjClasses.indexOf(this.selectedItem) < 0)) return null;
-		return this.selectedItem;
+	set selectedItem(v) {
+		this._selectedItem = v;
+	}
+
+	get selectedItem() {
+		if ((!editor.ClassesLoader.gameObjClasses) || (editor.ClassesLoader.gameObjClasses.indexOf(this._selectedItem) < 0)) return null;
+		return this._selectedItem;
 	}
 
 	refresh() {
@@ -261,7 +265,7 @@ class ClassesView extends React.Component {
 		}
 		
 		let bottomPanelClassName = '';
-		if (!this.selectedItem()) {
+		if (!this.selectedItem) {
 			bottomPanelClassName += ' disabled';
 		}
 		
