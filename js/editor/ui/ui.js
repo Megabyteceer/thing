@@ -156,16 +156,18 @@ export default UI;
 class StatusBar extends React.Component {
 	
 	componentDidMount() {
-		this.forceUpdate = () => this.forceUpdate();
-		window.addEventListener('mousedown', this.forceUpdate);
-		window.addEventListener('mousemove', this.forceUpdate);
-		window.addEventListener('wheel', this.forceUpdate);
+		this.refreshStatus = () => {
+			this.forceUpdate();
+		};
+		window.addEventListener('mousedown', this.refreshStatus);
+		window.addEventListener('mousemove', this.refreshStatus);
+		window.addEventListener('wheel', this.refreshStatus);
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('mousedown', this.forceUpdate);
-		window.removeEventListener('mousemove', this.forceUpdate);
-		window.removeEventListener('wheel', this.forceUpdate);
+		window.removeEventListener('mousedown', this.refreshStatus);
+		window.removeEventListener('mousemove', this.refreshStatus);
+		window.removeEventListener('wheel', this.refreshStatus);
 	}
 
 	render() {
