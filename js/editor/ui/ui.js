@@ -156,7 +156,7 @@ export default UI;
 class StatusBar extends React.Component {
 	
 	componentDidMount() {
-		this.forceUpdate = this.forceUpdate.bind(this);
+		this.forceUpdate = () => this.forceUpdate();
 		window.addEventListener('mousedown', this.forceUpdate);
 		window.addEventListener('mousemove', this.forceUpdate);
 		window.addEventListener('wheel', this.forceUpdate);
