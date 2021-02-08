@@ -967,7 +967,7 @@ declare global {
 			game.___enforcedOrientation = 'landscape';
 			game.__enforcedW = game.projectDesc.width;
 			game.__enforcedH = game.projectDesc.height;
-		} if (game.projectDesc.screenOrientation === 'portrait') {
+		} else if (game.projectDesc.screenOrientation === 'portrait') {
 			game.__enforcedW = game.projectDesc.portraitWidth;
 			game.__enforcedH = game.projectDesc.portraitHeight;
 		} else {
