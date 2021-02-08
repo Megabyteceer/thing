@@ -18,7 +18,7 @@ const imagePropertyDescriptor = {
 				, this
 			/// #endif
 			);
-			assert(this.texture.baseTexture, "baseTexture is empty.");
+			assert(this.texture && this.texture.baseTexture, "baseTexture is empty.");
 			/// #if EDITOR
 			if(this.texture && this.texture.valid && (Lib.hasTexture(this._imageID))) {
 				if(this.anchor && ((((this.texture.height & 1) !== 0) && this.anchor.x === 0.5) || (((this.texture.width & 1) !== 0) && this.anchor.y === 0.5))) {
