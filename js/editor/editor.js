@@ -798,7 +798,7 @@ declare global {
 	`}
 }
 `;
-			fs.saveFile('../../current-scene-typings.js', mapJS, true, true);
+			fs.saveFile('../../current-scene-typings.d.ts', mapJS, true, true);
 		}
 	}
 	

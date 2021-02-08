@@ -1,7 +1,7 @@
 /// <reference path="../node_modules/pixi.js-legacy/pixi.js-legacy.d.ts" />
 
 import 'current-project-typings.js';
-import 'current-scene-typings.js';
+import 'current-scene-typings.d.ts';
 import Editor from 'thing-editor/js/editor/editor.js';
 import game from 'thing-editor/js/engine/game.js';
 
