@@ -89,7 +89,7 @@ export default class FieldPlayer {
 				this.time += Math.round(Math.random() * currentFrame.r);
 			}
 
-			if (currentFrame.m === 0 && this.currentFrame.m === 0) { //- SMOOTH
+			if (currentFrame.m === 0) { //- SMOOTH
 				this.speed += (currentFrame.v - this.val) * this.pow;
 				this.val += this.speed;
 				this.speed *= this.damper;

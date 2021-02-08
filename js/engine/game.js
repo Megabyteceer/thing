@@ -242,9 +242,8 @@ class Game {
 		if(this.pixiApp && this.pixiApp.renderer) {
 			game.isCanvasMode = !this.pixiApp.renderer.gl;
 			if(!game.isCanvasMode) {
-				let maxTextureSize = 1024;
 				let gl = this.pixiApp.renderer.gl;
-				maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE);
+				let maxTextureSize = gl.getParameter(gl.MAX_TEXTURE_SIZE);
 				if(maxTextureSize < 3000) {
 					S = Math.min(1, S);
 				}

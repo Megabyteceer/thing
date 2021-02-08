@@ -55,12 +55,11 @@ export default class DataPathEditor extends React.Component {
 		if(node.getRootContainer() !== game.currentContainer) {
 			PrefabsList.exitPrefabEdit();
 		}
+		
 		if(node.getRootContainer() !== game.currentContainer) {
 			editor.ui.modal.notify('Target object is not in current container to be selected.');
-		} else if(node) {
-			editor.ui.sceneTree.selectInTree(node);
 		} else {
-			editor.ui.modal.notify('Not targets to display object.');
+			editor.ui.sceneTree.selectInTree(node);
 		}
 	}
 	

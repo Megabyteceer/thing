@@ -246,7 +246,7 @@ export default class KeyframePropertyEditor extends React.Component {
 		for(let k of keyframes) {
 
 			let fieldsProps = k.props.owner.props.owner.props;
-			speedSetPossible &= ((typeof fieldsProps.owner.props.node[fieldsProps.field.n]) === 'number');
+			speedSetPossible = speedSetPossible && ((typeof fieldsProps.owner.props.node[fieldsProps.field.n]) === 'number');
 			if(speedVal === false && k.props.keyFrame.hasOwnProperty('s')) {
 				speedVal = k.props.keyFrame.s;
 			}

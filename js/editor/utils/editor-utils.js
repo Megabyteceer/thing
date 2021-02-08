@@ -418,9 +418,9 @@ window.makeImageSelectEditablePropertyDescriptor = (name, canBeEmpty, important,
 				}
 				currentVal = o[name];
 			}
-			if((typeof currentVal === "string") && ((!ret.find((i) => {
+			if((typeof currentVal === "string") && (!ret.find((i) => {
 				return i.value === currentVal;
-			})))) {
+			}))) {
 				let a = [];
 				for(let i of ret) {
 					if(i.value.indexOf(currentVal.replace(/\.(png|jpg)/,'')) >= 0 || currentVal.indexOf(i.value.replace(/\.(png|jpg)/,'')) >= 0) {

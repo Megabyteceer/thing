@@ -341,7 +341,7 @@ class MusicProfiler extends React.Component {
 		} else {
 			for(let m of BgMusic.__allActiveMusics) {
 				if(m.__currentFragment) {
-					if(!m.__currentFragment.volume() === 0) {
+					if(m.__currentFragment.volume() === 0) {
 						className = 'danger';
 					}
 				}
