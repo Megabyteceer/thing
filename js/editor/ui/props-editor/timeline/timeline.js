@@ -764,7 +764,7 @@ export default class Timeline extends React.Component {
 	static mouseEventToTime(ev) {
 		let tl = Timeline.timelineDOMElement;
 		let b = tl.getBoundingClientRect();
-		let s = Window.all.timeline.state.renderedScale;
+		let s = Window.all.timeline.renderedScale;
 		
 		let x = ev.clientX - 110 * s - b.x - draggingXShift;
 		return Math.max(0, Math.round((x + tl.scrollLeft * s) / widthZoom / s));
