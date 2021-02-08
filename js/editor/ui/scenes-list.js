@@ -141,9 +141,6 @@ export default class ScenesList extends React.Component {
 		let bottomPanelClassName = '';
 		if (!editor.currentSceneName) {
 			bottomPanelClassName += ' disabled';
-			this.state.selectedItem = null;
-		} else {
-			this.state.selectedItem = libsScenes[editor.currentSceneName];
 		}
 		
 		let scenes = [];

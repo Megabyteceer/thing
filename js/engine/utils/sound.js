@@ -322,15 +322,16 @@ function loadIndexedDB (filename, callback) {
 		var getData;
 		if (filename) {
 			getData = db.store.get(filename);
+		
+
+			getData.onsuccess = function() {
+				callback(getData.result && getData.result.data);
+			};
+
+			db.tx.oncomplete = function() {
+				db.result.close();
+			};
 		}
-
-		getData.onsuccess = function() {
-			callback(getData.result && getData.result.data);
-		};
-
-		db.tx.oncomplete = function() {
-			db.result.close();
-		};
 	};
 
 	return true;

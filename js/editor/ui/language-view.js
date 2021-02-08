@@ -442,8 +442,8 @@ function refreshCachedData() {
 		return (langIdPriority(a) > langIdPriority(b)) ? 1 : -1;
 	});
 	oneLanguageTable = currentLanguage[langsIdsList[0]];
-	idsList = Object.keys(oneLanguageTable);
 	assert(oneLanguageTable, "No localization data loaded.");
+	idsList = Object.keys(oneLanguageTable);
 	let idsForDropdown = Object.keys(languagesMerged[langsIdsList[0]]);
 
 	let a = [{name:'none', value:''}];
