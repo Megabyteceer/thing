@@ -106,9 +106,9 @@ export default class ScenesList extends React.Component {
 		let cls = Lib.__hasClass(item.c) ? Lib.getClass(item.c) : Scene;
 		let deleteBtn;
 		if(sceneName === editor.currentSceneName) {
-			this.state.selectedItem = item;
+			this.selectedItem = item;
 		} else {
-			this.state.selectedItem = null;
+			this.selectedItem = null;
 			deleteBtn = R.btn(' ', () => {
 				this.onSceneDeleteClick(sceneName, sceneView);
 			}, 'Delete scene...', 'delete-scene-btn');

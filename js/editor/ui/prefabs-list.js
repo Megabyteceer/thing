@@ -24,7 +24,7 @@ const classNameProps = {className: 'scene-node-class'};
 let prefabNameProps = {
 	className: "selectable-text", title: 'Ctrl+click to copy prefabs`s name', onMouseDown:window.copyTextByClick
 };
-
+/** @type PrefabsList */
 let instance;
 
 let prefabsStack = [];
@@ -57,8 +57,8 @@ export default class PrefabsList extends React.Component {
 	
 	onAddClick(ev) {
 		PrefabsList.exitPrefabEdit();
-		if (this.state.selectedItem) {
-			editor.addToScene(this._loadPrefab(this.state.selectedItem, ev.altKey));
+		if (this.selectedItem) {
+			editor.addToScene(this._loadPrefab(this.selectedItem, ev.altKey));
 		}
 	}
 
@@ -75,8 +75,8 @@ export default class PrefabsList extends React.Component {
 	
 	onAddChildClick(ev) {
 		PrefabsList.exitPrefabEdit();
-		if (this.state.selectedItem) {
-			this._addPrefabToChild(this.state.selectedItem, ev.altKey);
+		if (this.selectedItem) {
+			this._addPrefabToChild(this.selectedItem, ev.altKey);
 		}
 	}
 
@@ -97,8 +97,8 @@ export default class PrefabsList extends React.Component {
 		} else {
 			
 			let defaultPrefabName = '';
-			if (this.state.selectedItem && this.state.selectedItem.p.name) {
-				defaultPrefabName = this.state.selectedItem.p.name.split('/');
+			if (this.selectedItem && this.selectedItem.p.name) {
+				defaultPrefabName = this.selectedItem.p.name.split('/');
 				defaultPrefabName.pop();
 				defaultPrefabName = defaultPrefabName.join('/');
 				if (defaultPrefabName) {
@@ -186,7 +186,8 @@ export default class PrefabsList extends React.Component {
 			editor.ui.viewport.setPrefabMode(name);
 			editor.history.clearHistory();
 			prefabsStack.push(name);
-			instance.setState({selectedItem: (Lib._getAllPrefabs())[name]});
+			instance.selectedItem = Lib._getAllPrefabs()[name];
+			instance.forceUpdate();
 		}
 	}
 	
@@ -256,7 +257,7 @@ export default class PrefabsList extends React.Component {
 	render() {
 		let scenePrefabs = Lib._getAllPrefabs();
 		
-		let panelClassName = this.state.selectedItem ? '' : 'unclickable';
+		let panelClassName = this.selectedItem ? '' : 'unclickable';
 		
 		let prefabs = [];
 		let prefabsNames = Object.keys(scenePrefabs);
@@ -264,7 +265,7 @@ export default class PrefabsList extends React.Component {
 
 		for (let prefabName of prefabsNames) {
 			let item = scenePrefabs[prefabName];
-			if(_searchByRegexpOrText(prefabName, this.state.filter) || (this.state.selectedItem === item)) {
+			if(_searchByRegexpOrText(prefabName, this.state.filter) || (this.selectedItem === item)) {
 				prefabs.push(this.renderItem(prefabName, item));
 			}
 		}

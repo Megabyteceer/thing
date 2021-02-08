@@ -34,12 +34,12 @@ class ClassesView extends React.Component {
 	}
 	
 	onAddClick() {
-		editor.addToScene(ClassesView.loadSafeInstanceByClassName(this.state.selectedItem.c.name));
+		editor.addToScene(ClassesView.loadSafeInstanceByClassName(this.selectedItem.c.name));
 	}
 	
 	onAddAsChildClick() {
 		if(editor.isCanBeAddedAsChild()) {
-			editor.attachToSelected(ClassesView.loadSafeInstanceByClassName(this.state.selectedItem.c.name));
+			editor.attachToSelected(ClassesView.loadSafeInstanceByClassName(this.selectedItem.c.name));
 		}
 	}
 	
@@ -54,7 +54,7 @@ class ClassesView extends React.Component {
 	}
 	
 	onWrapSelectedClick() {
-		editor.wrapSelected(this.state.selectedItem.c.name);
+		editor.wrapSelected(this.selectedItem.c.name);
 	}
 
 	onNewComponentClick() {
@@ -225,8 +225,8 @@ class ClassesView extends React.Component {
 	}
 	
 	selectedItem() {
-		if ((!editor.ClassesLoader.gameObjClasses) || (editor.ClassesLoader.gameObjClasses.indexOf(this.state.selectedItem) < 0)) return null;
-		return this.state.selectedItem;
+		if ((!editor.ClassesLoader.gameObjClasses) || (editor.ClassesLoader.gameObjClasses.indexOf(this.selectedItem) < 0)) return null;
+		return this.selectedItem;
 	}
 
 	refresh() {
@@ -250,7 +250,7 @@ class ClassesView extends React.Component {
 		} else {
 
 			body =  classes.filter((c) => {
-				return _searchByRegexpOrText(c.c.name.toLowerCase(), this.state.filter.toLowerCase()) || (this.state.selectedItem === c)
+				return _searchByRegexpOrText(c.c.name.toLowerCase(), this.state.filter.toLowerCase()) || (this.selectedItem === c)
 			}).map(this.renderItem);
 
 			if(!this.state.filter) {

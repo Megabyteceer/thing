@@ -78,17 +78,17 @@ R.sceneNode = (node) => {
 
 R.listItem = (view, item, key, parent, help) => {
 	let className = 'list-item';
-	if(parent.state.selectedItem === item) {
+	if(parent.selectedItem === item) {
 		className += ' item-selected';
 	}
 	
 	return R.div({
 		'data-help' : help,
 		className: className, key: key, onMouseDown: (ev) => {
-			if(parent.state.selectedItem !== item || parent.reselectAllowed) {
-				let itemToSelect = parent.onSelect(item, ev, parent.state.selectedItem) || item;
-				if(parent.state.selectedItem !== itemToSelect) {
-					parent.state.selectedItem = itemToSelect;
+			if(parent.selectedItem !== item || parent.reselectAllowed) {
+				let itemToSelect = parent.onSelect(item, ev, parent.selectedItem) || item;
+				if(parent.selectedItem !== itemToSelect) {
+					parent.selectedItem = itemToSelect;
 					parent.forceUpdate();
 				}
 			}
