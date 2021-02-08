@@ -473,8 +473,7 @@ export default class Editor {
 		if(!(o instanceof Container)) {
 			return;
 		}
-		o = editor.selection[0];
-		return o && !o.constructor.__canNotHaveChildren;
+		return !o.constructor.__canNotHaveChildren;
 	}
 
 	isCanBeAdded() {

@@ -60,7 +60,7 @@ R.classIcon = (constructor) => {
 };
 
 R.multilineText = (txt) => {
-	if(!(typeof txt === 'string')) {
+	if(typeof txt !== 'string') {
 		return txt;
 	}
 	return R.div(null, txt.split('\n').map((r, i) =>{

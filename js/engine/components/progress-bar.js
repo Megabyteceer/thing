@@ -3,7 +3,6 @@ import callByPath from "../utils/call-by-path.js";
 import Container from "./container.js";
 import game from "../game.js";
 import Fill from './fill.js';
-import Button from './button.js';
 import NineSlicePlane from './nine-slice-plane.js';
 import Shape from './shape.js';
 import Lib from '../lib.js';

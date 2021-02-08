@@ -1575,11 +1575,7 @@ if(window.cordova) {
 if (PIXI.utils.isMobile.any) {
 	window.addEventListener('error', function (msg, url, line, col, error) {
 		let txt = JSON.stringify({msg, url, line, col, error});
-		if(game) {
-			game.__showDebugError(txt);
-		} else {
-			alert(txt);
-		}
+		game.__showDebugError(txt);
 	});
 }
 /// #endif
