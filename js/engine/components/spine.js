@@ -44,30 +44,30 @@ function generateSpineData(skeletonData, spineName) {
 	return spineJsonParser.readSkeletonData(skeletonData);
 }
 function createSpineTextureAtlas(skeletonData, spineName) {
-  // Fetch all texture names used in the spine
-  const nonTextureItemTypes = ['path', 'clipping', 'boundingbox', 'point'];
+	// Fetch all texture names used in the spine
+	const nonTextureItemTypes = ['path', 'clipping', 'boundingbox', 'point'];
 	const defaultSkinAttachments = Array.isArray(skeletonData.skins)
 		? skeletonData.skins.find(({ name }) => name === 'default').attachments
 		: skeletonData.skins.default; // spine version before 3.8 support;
 	const textureNamesSet = new Set();
-  Object.values(defaultSkinAttachments).forEach(slot => {
+	Object.values(defaultSkinAttachments).forEach(slot => {
 		Object.keys(slot)
 			.filter(itemName => !nonTextureItemTypes.includes(slot[itemName].type))
 			.forEach(textureName => textureNamesSet.add(slot[textureName].path || textureName));
-  });
+	});
 
-  const textureAtlas = new PIXI.spine.core.TextureAtlas();
+	const textureAtlas = new PIXI.spine.core.TextureAtlas();
 
-  textureNamesSet.forEach(texturePath => {
+	textureNamesSet.forEach(texturePath => {
 		const textureFileName = texturePath.substring(texturePath.lastIndexOf('/'));
 		const texture = Lib.getTextureEndingWith(texturePath + '.png') || Lib.getTextureEndingWith(texturePath + '.jpg') ||
 			Lib.getTextureEndingWith(textureFileName + '.png') || Lib.getTextureEndingWith(textureFileName + '.jpg');
-		assert(texture, `can't find texture (${texturePath}.png or ${texturePath}.jpg) for spine (${spineName})`)
-    textureAtlas.addTexture(texturePath, texture);
-  });
+		assert(texture, `can't find texture (${texturePath}.png or ${texturePath}.jpg) for spine (${spineName})`);
+		textureAtlas.addTexture(texturePath, texture);
+	});
 
-  return textureAtlas;
-};
+	return textureAtlas;
+}
 
 function disposeSpineInstance(o) {
 	o.visible = true;
@@ -148,9 +148,7 @@ export default class Spine extends Container {
 		this._releaseSpine();
 	}
 
-	set __duration(v) {
-		return v;
-	}
+	set __duration(v) {}
 
 	get __duration() {
 		return this.spineContent && Math.ceil(this.spineContent.state.data.skeletonData.animations.find((a) => {
@@ -635,7 +633,7 @@ Spine.prototype.setCurrentAnimation.___EDITOR_callbackParameterChooserFunction =
 Spine.prototype.setCurrentSkin.___EDITOR_isGoodForCallbackChooser = true;
 Spine.prototype.setCurrentSkin.___EDITOR_callbackParameterChooserFunction = (context) => {
 	const spineContent = context.spineContent;
-	if (!context || !context.spineContent || !context.spineContent.skeleton.data.skins) {
+	if (!context.spineContent || !context.spineContent.skeleton.data.skins) {
 		return Promise.resolve('enterSkinNameHere');
 	}
 
