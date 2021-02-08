@@ -661,9 +661,9 @@ class Game {
 			resizeOutJump = setTimeout(() => {
 				resizeOutJump = false;
 				if(game.isMobile.any) {
-					[20,40,80,200,500,1000,1500,2000,3000].some((i)=>{
+					for(let i of [20,40,80,200,500,1000,1500,2000,3000]) {
 						setTimeout(this.onResize, i);
-					});
+					}
 				}
 				this.onResize();
 			}, game.isMobile.any ? 1 : 200);
