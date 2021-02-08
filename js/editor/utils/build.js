@@ -9,9 +9,9 @@ function isFileNameValidForBuild(prefabName) {
 
 function filterObjectsData(obj) {
 	let ret = {};
-	Object.keys(obj).filter(isFileNameValidForBuild).sort().some((name) => {
+	for(let name of Object.keys(obj).filter(isFileNameValidForBuild).sort()) {
 		ret[name] = obj[name];
-	});
+	}
 	return ret;
 }
 
